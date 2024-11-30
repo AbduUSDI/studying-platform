@@ -1,0 +1,16 @@
+<!-- retour.php -->
+<div>
+    <button onclick="retourDernierePage()" class="btn btn-primary">Retour à la page précédente</button>
+</div>
+
+<script>
+    function retourDernierePage() {
+        if (document.referrer) {
+            // Retour à la page précédente
+            history.back();
+        } else {
+            // Redirige vers la page d'accueil si aucun historique
+            window.location.href = 'https://www.abduusdi.fr/cours/index.php?page=home';
+        }
+    }
+</script>
