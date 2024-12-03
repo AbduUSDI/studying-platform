@@ -4,15 +4,15 @@ include 'templates/nav.php';
 require 'fonctions.php';
 
 $questionHandler = new Questions();
-$questions = $questionHandler->getQuestionQCM2();
+$questions = $questionHandler->getQuestionEvaluationFinale();
 
 shuffle($questions);
-$selectedQuestions = array_slice($questions, 0, 20);
+$selectedQuestions = array_slice($questions, 0, 50);
 
 $_SESSION['questions'] = $selectedQuestions; // Stocker les questions dans la session.
 
 // Définir la catégorie pour ce QCM
-$category = "Définitions"; // Modifier ici selon la catégorie du QCM
+$category = "Evaluation finale"; // Modifier ici selon la catégorie du QCM
 ?>
 
 <!DOCTYPE html>
@@ -20,16 +20,16 @@ $category = "Définitions"; // Modifier ici selon la catégorie du QCM
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QCM - Définitions clés</title>
+    <title>QCM - Evaluation finale</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css"/>
-    <link rel="stylesheet" href="/Portfolio/cours/assets/css/exercice.css"/>
+    <link rel="stylesheet" href="https://www.abduusdi.fr/cours/assets/css/exercice.css"/>
 </head>
 <body>
 <div class="container mt-5">
     <?php include_once 'retour.php'; ?>
-    <h1 class="text-center mb-4 text-primary">QCM - Définitions clés</h1>
+    <h1 class="text-center mb-4 text-primary">QCM - Evaluation finale</h1>
     <form action="index.php?page=qcm_dev/save_score" method="POST" id="qcm-form">
         <div class="row">
             <?php foreach ($selectedQuestions as $index => $question): ?>

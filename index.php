@@ -81,6 +81,7 @@ $pages = [
     'qcm_dev/qcm9',
     'qcm_dev/qcm10',
     'qcm_dev/save_score',
+    'qcm_dev/evaluation_final',
     '404'
 ];
 

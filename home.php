@@ -71,12 +71,18 @@
     <a href="index.php?page=cours_tests_unitaires">Tests Unitaires</a>
     <a href="index.php?page=cours_performance">Optimisation de la Performance</a>
 
-    <h4>Evaluations et QCM Développeur web</h4>
+    <h4>QCM Développeur web</h4>
     <a href="index.php?page=qcm_dev/index">Accueil QCM</a>
     <a href="index.php?page=qcm_dev/qcm1">QCM sur les dates clés</a>
     <a href="index.php?page=qcm_dev/qcm2">QCM sur les définitions clés</a>
     <a href="index.php?page=qcm_dev/qcm3">QCM sur les méthodologies</a>
     <a href="index.php?page=qcm_dev/qcm4">QCM sur les techniques utilisées</a>
+    <a href="index.php?page=qcm_dev/qcm5">QCM sur les points techniques approfondis</a>
+    <a href="index.php?page=qcm_dev/qcm6">QCM sur les outils à maitriser</a>
+    <a href="index.php?page=qcm_dev/qcm7">QCM sur les bonnes pratiques de code</a>
+
+    <h4>Evaluations</h4>
+    <a href="index.php?page=qcm_dev/evaluation_final">Evaluation finale - 50 questions</a>
 </div>
 <div class="container mt-5">
     <h1 class="text-primary text-center mb-4">Bienvenue au Centre de Cours</h1>
