@@ -10,7 +10,7 @@
             history.back();
         } else {
             // Redirige vers la page d'accueil si aucun historique
-            window.location.href = '/Portfolio/cours/index.php?page=qcm_dev/index';
+            window.location.href = 'https://www.abduusdi.fr/cours/index.php?page=qcm_dev/index';
         }
     }
 </script>

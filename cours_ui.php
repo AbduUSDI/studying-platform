@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours Complet sur l'Interface Utilisateur (UI)</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/cours.css">
-    
-</head>
-<body>
+<?php
 
-<?php include 'templates/nav.php'; ?>
+$title = "Cours - User Interface (UI)";
+
+include_once 'templates/header_wo_sb.php';
+?>
 
 <div class="sidebar">
     <h3 style="padding-left: 15px; font-weight: bold;">Interface Utilisateur (UI)</h3>
@@ -149,10 +141,4 @@
     </div>
 </div>
 
-<!-- Bootstrap JS (optional if you want responsive behavior) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="assets/js/scripts.js"></script>
-
-</body>
-</html>
+<?php include_once 'templates/footer.php';

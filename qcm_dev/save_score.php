@@ -48,7 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'question' => $question['question'],
             'answers' => $question['answers'],
             'correct' => $question['correct'],
-            'userAnswer' => $userAnswer
+            'userAnswer' => $userAnswer,
+            'explication' => $question['explication'] ?? null
         ];
         if ($userAnswer !== null && $userAnswer == $question['correct']) {
             $score++;
@@ -70,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<a href='index.php?page=qcm_dev/index' class='btn btn-primary mt-3'>Retour à l'accueil</a>";
         echo "</div>";
 
-        // Générer un tableau HTML avec les réponses
+        // Générer un tableau HTML avec les réponses et les explications
         echo "<div id='answers-container' class='container mt-5' style='display: none;'>";
         foreach ($responses as $index => $response) {
             echo "<div class='card mb-3'>";
@@ -105,6 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Indiquer que la question n'a pas été répondue si aucune réponse n'a été sélectionnée
             if (!isset($response['userAnswer'])) {
                 echo "<p class='text-warning mt-2'>Vous n'avez pas répondu à cette question.</p>";
+            }
+
+            // Afficher l'explication si elle est disponible
+            if (!empty($response['explication'])) {
+                echo "<p class='text-info mt-3'><strong>Explication :</strong> " . htmlspecialchars($response['explication']) . "</p>";
             }
 
             echo "</ul>";

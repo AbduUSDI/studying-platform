@@ -1,78 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours Complet sur l'Expérience Utilisateur (UX)</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/cours.css">
-    <style>
-        /* Styles additionnels pour améliorer le visuel */
-        .sidebar h3 {
-            font-weight: bold;
-            padding: 15px;
-            color: #2c3e50;
-        }
-        .dropdown-btn {
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            text-align: left;
-            width: 100%;
-            cursor: pointer;
-            font-weight: bold;
-            outline: none;
-            transition: background-color 0.3s;
-        }
-        .dropdown-btn:hover {
-            background-color: #2980b9;
-        }
-        .dropdown-container a {
-            color: #2980b9;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-container a:hover {
-            background-color: #dfe6e9;
-        }
-        .content h1 {
-            color: #2c3e50;
-        }
-        .content h2 {
-            color: #3498db;
-        }
-        .content p, .content ul, .content ol {
-            font-size: 1.1em;
-            line-height: 1.7em;
-        }
-        .icon-section {
-            display: inline-flex;
-            align-items: center;
-            font-size: 1.2em;
-            color: #3498db;
-        }
-        .icon-section i {
-            margin-right: 10px;
-            color: #2980b9;
-        }
-        .section-title {
-            color: #34495e;
-            border-left: 5px solid #3498db;
-            padding-left: 10px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .highlight {
-            color: #3498db;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <?php include 'templates/nav.php'; ?>
+<?php
+
+$title = "Cours - User Experience (UX)";
+
+include_once 'templates/header_wo_sb.php';
+?>
 
     <div class="sidebar">
         <h3>Expérience Utilisateur (UX)</h3>
@@ -228,9 +159,5 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS and jQuery for dropdown functionality -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-</body>
-</html>
+
+<?php include_once 'templates/footer.php';

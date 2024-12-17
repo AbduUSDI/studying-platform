@@ -12,7 +12,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
     session_unset();
     session_destroy();
     // Redirection vers la page de login
-    header('Location: login.php');
+    header('Location: index.php?page=home');
     exit;
 }
 
@@ -42,7 +42,8 @@ $pages = [
     'cours_rust',
     'cours_go',
     'cours_react',
-    'cours_vue',
+    'cours_vuejs',
+    'cours_nestjs',
     'cours_angular',
     'cours_django',
     'cours_laravel',
@@ -81,8 +82,22 @@ $pages = [
     'qcm_dev/qcm9',
     'qcm_dev/qcm10',
     'qcm_dev/save_score',
+    'qcm_dev/qcm_html',
+    'qcm_dev/qcm_css',
+    'qcm_dev/qcm_php',
+    'qcm_dev/qcm_js',
+    'qcm_dev/qcm_python',
+    'qcm_dev/qcm_mongodb',
+    'qcm_dev/qcm_ajax',
+    'qcm_dev/qcm_prototypage',
+    'qcm_dev/qcm_ui',
+    'qcm_dev/qcm_ux',
+    'qcm_dev/qcm_scrum',
+    'qcm_dev/qcm_sql',
     'qcm_dev/evaluation_final',
-    '404'
+    'qcm_dev/evaluation_final_divers',
+    '404',
+    'inprogress'
 ];
 
 // Chemin de base des fichiers des pages
@@ -106,6 +121,6 @@ if ($filePath && strpos($filePath, $baseDir) === 0 && file_exists($filePath)) {
         echo "Une erreur s'est produite : " . htmlspecialchars($e->getMessage());
     }
 } else {
-    // Si le fichier n'existe pas, afficher un message d'erreur
-    echo "Une erreur s'est produite : fichier introuvable.";
+    // Redirection vers inprogress.php même si la page est dans la liste, si elle est dans la liste mais pas dans le code source alors il faut inprogress.php
+    header('Location: index.php?page=inprogress');
 }

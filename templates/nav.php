@@ -42,7 +42,8 @@
                     <h3 class="mt-3 category-title" style="background: #0056b3;">Frameworks et Bibliothèques</h3>
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_ajax">AJAX</a>
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_react">React</a>
-                    <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_vue">Vue.js</a>
+                    <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_vuejs">Vue.js</a>
+                    <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_nestjs">Nest.js</a>
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_angular">Angular</a>
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_django">Django</a>
                     <a class="nav-link btn btn-outline-primary my-1" href="index.php?page=cours_laravel">Laravel</a>
@@ -101,91 +102,106 @@
 
 <!-- Styles CSS pour personnaliser le modal et les boutons -->
 <style>
-    /* Style général du modal */
-    .modal-content {
-        background: #f8f9fa;
-        color: #212529;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        font-family: Arial, sans-serif;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-    .modal-header {
-        background-color: #e3f2fd;
-        color: #fff;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
-    }
+:root {
+  --white-color: #ffffff;
+  --primary-color: #00bcd4; /* Bleu clair */
+  --secondary-color: #ff5722; /* Orange */
+  --dark-bg: #121212;
+  --light-bg: #1e1e1e;
+  --ms-3: 0.3s;
+  --ms-5: 0.5s;
+  --ms-8: 0.8s;
+  --s-1: 1.0s;
+}
 
-    /* Style des liens de navigation */
-    .modal-body .nav-link {
-        font-size: 18px;
-        color: #007bff;
-        padding: 12px;
-        border-radius: 8px;
-        transition: background-color 0.2s ease, color 0.2s ease;
-    }
+/* Style général du modal */
+.modal-content {
+    background: var(--light-bg);
+    color: var(--white-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    font-family: 'Montserrat', sans-serif;
+}
 
-    .modal-body .nav-link:hover {
-        background-color: #e9ecef;
-        color: #0056b3;
-    }
+.modal-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
 
-    /* Style des titres de catégorie */
-    .category-title {
-        font-size: 20px;
-        margin: 20px 0 10px;
-        color: white;
-        font-weight: bold;
-        background-color: #e3f2fd;
-        border-radius: 8px;
-        padding: 8px;
-    }
+/* Style des liens de navigation */
+.modal-body .nav-link {
+    font-size: 18px;
+    color: var(--primary-color);
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color var(--ms-3) ease, color var(--ms-3) ease;
+}
 
-    /* Style des boutons fixes en bas */
-    #menu-btn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-color: #007bff;
-        color: white;
-        font-size: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1050;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.modal-body .nav-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
 
-    #menu-btn:hover {
-        background-color: #0056b3;
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+/* Style des titres de catégorie */
+.category-title {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    color: var(--white-color);
+    font-weight: bold;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 8px;
+}
 
-    /* Style des boutons de navigation en haut et en bas */
-    .scroll-btn {
-        position: fixed;
-        bottom: 100px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #007bff;
-        color: #fff;
-        font-size: 18px;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.2s ease;
-    }
+/* Style des boutons fixes en bas */
+#menu-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    transition: transform var(--ms-3) ease, box-shadow var(--ms-3) ease;
+}
 
-    .scroll-btn:hover {
-        background-color: #0056b3;
-    }
+#menu-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style des boutons de navigation en haut et en bas */
+.scroll-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 18px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--ms-3) ease;
+}
+
+.scroll-btn:hover {
+    background-color: var(--secondary-color);
+}
 
 </style>
 

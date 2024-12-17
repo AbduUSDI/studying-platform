@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test-Driven Development (TDD) - Cours Complet</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Font Awesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Animate.css pour les animations -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="assets/css/cours.css"/>
-</head>
-<body>
-<?php include 'templates/nav.php'; ?>
+<?php
+
+$title = "Cours - Test driven development (TDD)";
+
+include_once 'templates/header_wo_sb.php';
+?>
 
 <div class="sidebar">
     <h3 style="padding-left: 15px; font-weight: bold;">Test-Driven Development (TDD)</h3>
@@ -120,9 +110,4 @@ function addition(a, b) {
     </div>
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="assets/js/scripts.js"></script>
-</body>
-</html>
+<?php include_once 'templates/footer.php';

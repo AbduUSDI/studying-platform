@@ -1,36 +1,63 @@
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
+document.addEventListener('DOMContentLoaded', () => {
+    // Gestion des dropdowns
+    const dropdowns = document.getElementsByClassName("dropdown-btn");
+    for (let i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            const dropdownContent = this.nextElementSibling;
+            if (dropdownContent) {
+                dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+            }
+        });
+    }
 
-for (i = 0; i < dropdown.length; i++) {
-    dropdown[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
+    // Gestion de la sidebar
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarToggleBtn = document.getElementById('sidebarToggle');
+
+    if (sidebar && sidebarToggleBtn) {
+        sidebarToggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Fermer la sidebar en cliquant à l'extérieur
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !sidebarToggleBtn.contains(e.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Fermer la sidebar lorsqu'un lien est cliqué
+        sidebar.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        });
+    }
+
+    // Gestion du footer
+    const footer = document.getElementById('footerId');
+    const footerContent = document.querySelector(".footer-content");
+    const footerToggleBtn = document.getElementById('toggleFooterBtn');
+    const footerToggleIcon = document.getElementById('toggleFooterIcon');
+
+    // Initialisation : état du footer masqué
+    footer.style.height = '60px';
+    footerContent.style.maxHeight = '0';
+    footerContent.style.opacity = '0';
+
+    footerToggleBtn.addEventListener('click', () => {
+        if (footer.style.height === '60px') {
+            footer.style.height = '400px'; // Agrandir le footer
+            footerContent.style.maxHeight = '400px';
+            footerContent.style.opacity = '1';
+            footerToggleIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
         } else {
-            dropdownContent.style.display = "block";
+            footer.style.height = '60px'; // Réduire le footer
+            footerContent.style.maxHeight = '0';
+            footerContent.style.opacity = '0';
+            footerToggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
         }
     });
-}
-// Sélectionner les éléments
-const sidebar = document.querySelector('.sidebar');
-const toggleBtn = document.getElementById('sidebarToggle');
-
-// Ouvrir et fermer la sidebar
-toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
 });
 
-// Fermer la sidebar en cliquant à l'extérieur
-document.addEventListener('click', (e) => {
-    if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
-        sidebar.classList.remove('active');
-    }
-});
-
-// Fermer la sidebar lorsqu'un lien est cliqué
-document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-    });
-});
